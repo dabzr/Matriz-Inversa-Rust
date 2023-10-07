@@ -2,14 +2,8 @@ mod matrix_calc;
 mod inverse_matrix;
 mod matrix_visual;
 
-//use ::matrix_calc::set_adjoint;
-//use ::matrix_visual::create_random_matrix;
-//use ::matrix_calc::det;
-//use ::inverse_matrix::inverse_matrix;
 use std::io;
 use std::vec::Vec;
-
-//use crate::matrix_visual::print_matrix;
 
 fn main() {
     println!("Digite o fator da matriz: ");
