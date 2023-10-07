@@ -22,7 +22,7 @@ fn cofactor(matrix: &Vec<Vec<f32>>, size: usize, row: usize, col:  usize) -> f32
         }
         subi += 1;
     }
-    return det(&submatrix, size-1);
+    det(&submatrix, size-1)
 }
 
 pub fn det(matrix: &Vec<Vec<f32>>, size: usize) -> f32{
@@ -37,5 +37,5 @@ pub fn det(matrix: &Vec<Vec<f32>>, size: usize) -> f32{
                 sgn = -sgn;
             },
     }
-    return det;
+    det
 }
