@@ -9,11 +9,15 @@ pub fn create_random_matrix(size: usize) -> Vec<Vec<f32>> {
 }
 
 pub fn print_matrix(matrix: Vec<Vec<f32>>){
-    matrix.iter().for_each(|row| {
-        print!("| ");
-        row.iter().for_each(|&element| {
-            print!("{} ", element);
-        });
+    matrix
+        .iter()
+        .for_each(|row| {
+            print!("| ");
+            row
+                .iter()
+                .for_each(|&element| {
+                    print!("{} ", element);
+                });
         println!("|")
     });
 }

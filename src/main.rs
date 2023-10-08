@@ -21,8 +21,7 @@ fn main() {
         Ok(size) => {
             let matriz: Vec<Vec<f32>> = create_random_matrix(size);
             print_matrix(matriz.clone());
-            println!("O determinante da matriz é {}", det(&matriz));
-            println!("A matriz adjunta é: ");
+            println!("O determinante da matriz é {}\nA matriz adjunta é: ", det(&matriz));
             print_matrix(adj(&matriz));
             println!("A matriz inversa é: ");
             print_matrix(inverse_matrix(&matriz));
