@@ -1,19 +1,19 @@
 use std::vec::Vec;
 use rand::Rng;
-pub fn create_random_matrix(dest: &mut Vec<Vec<f32>>, size: usize){
+
+pub fn create_random_matrix(size: usize) -> Vec<Vec<f32>> {
     let mut rng = rand::thread_rng();
-    *dest = vec![vec![0.0; size]; size];
-    for i in 0..size{
-        for j in 0..size {dest[i][j] = rng.gen_range(1..10) as f32}
-    }
+    (0..size).map(|_| {
+        (0..size).map(|_| rng.gen_range(0..10) as f32).collect::<Vec<f32>>()
+    }).collect::<Vec<Vec<f32>>>()
 }
 
-pub fn print_matrix(matrix: Vec<Vec<f32>>, size: usize){
-    for i in 0..size{
+pub fn print_matrix(matrix: &[Vec<f32>]){
+    matrix.iter().for_each(|row| {
         print!("| ");
-        for j in 0..size {
-            print!("{} ", matrix[i][j]);
-        }
-    print!("|\n");
-    }
+        row.iter().for_each(|&element| {
+            print!("{} ", element);
+        });
+        println!("|")
+    });
 }

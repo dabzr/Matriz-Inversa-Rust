@@ -4,6 +4,7 @@ mod matrix_visual;
 
 use std::io;
 use std::vec::Vec;
+use matrix_visual::print_matrix;
 
 fn main() {
     println!("Digite o fator da matriz: ");
@@ -15,18 +16,15 @@ fn main() {
 
     match size {
         Ok(size) => {
-            let mut matriz: Vec<Vec<f32>> = Vec::new();
-            let mut adjunta: Vec<Vec<f32>> = Vec::new(); 
-            let mut inversa: Vec<Vec<f32>> = Vec::new();
-            matrix_visual::create_random_matrix(&mut matriz, size);
-            matrix_calc::set_adjoint(matriz.clone(), &mut adjunta, size);
-            matrix_visual::print_matrix(matriz.clone(), size);
-            println!("O determinante da matriz é {}", matrix_calc::det(&matriz, size));
+            let matriz: Vec<Vec<f32>> = matrix_visual::create_random_matrix(size);
+            let adjunta: Vec<Vec<f32>> = matrix_calc::adj(&matriz);
+            let inversa: Vec<Vec<f32>> = inverse_matrix::inverse_matrix(&matriz);
+            print_matrix(&matriz);
+            println!("O determinante da matriz é {}", matrix_calc::det(&matriz));
             println!("A matriz adjunta é: ");
-            matrix_visual::print_matrix(adjunta, size);
+            print_matrix(&adjunta);
             println!("A matriz inversa é: ");
-            inverse_matrix::inverse_matrix(matriz, &mut inversa, size);
-            matrix_visual::print_matrix(inversa, size);
+            print_matrix(&inversa);
         }
         Err(_) => {
             println!("Entrada inválida. Certifique-se de digitar um número inteiro válido.");
