@@ -1,9 +1,9 @@
-mod matrix_calc;
 mod inverse_matrix;
+mod matrix_calc;
 mod matrix_visual;
 
-use matrix_calc::*;
 use inverse_matrix::*;
+use matrix_calc::*;
 use matrix_visual::*;
 
 use std::io;
@@ -13,7 +13,9 @@ fn main() {
     println!("Digite o fator da matriz: ");
 
     let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("Falha ao ler a entrada");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Falha ao ler a entrada");
     let input = input.trim();
     let size: Result<usize, _> = input.parse();
 
@@ -21,7 +23,10 @@ fn main() {
         Ok(size) => {
             let matriz: Vec<Vec<f32>> = create_random_matrix(size);
             print_matrix(matriz.clone());
-            println!("O determinante da matriz é {}\nA matriz adjunta é: ", det(&matriz));
+            println!(
+                "O determinante da matriz é {}\nA matriz adjunta é: ",
+                det(&matriz)
+            );
             print_matrix(adj(&matriz));
             println!("A matriz inversa é: ");
             print_matrix(inverse_matrix(&matriz));
