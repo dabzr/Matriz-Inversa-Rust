@@ -20,16 +20,15 @@ fn main() {
     match size {
         Ok(size) => {
             let matriz: Vec<Vec<f32>> = create_random_matrix(size);
-            print_matrix(&matriz);
+            print_matrix(matriz.clone());
             println!("O determinante da matriz é {}", det(&matriz));
             println!("A matriz adjunta é: ");
-            print_matrix(&(adj(&matriz)));
+            print_matrix(adj(&matriz));
             println!("A matriz inversa é: ");
-            print_matrix(&(inverse_matrix(&matriz)));
+            print_matrix(inverse_matrix(&matriz));
         }
         Err(_) => {
             println!("Entrada inválida. Certifique-se de digitar um número inteiro válido.");
         }
     }
-
 }
