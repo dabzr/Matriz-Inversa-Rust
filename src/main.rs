@@ -1,8 +1,6 @@
-mod inverse_matrix;
 mod matrix_calc;
 mod matrix_visual;
 
-use inverse_matrix::*;
 use matrix_calc::*;
 use matrix_visual::*;
 
